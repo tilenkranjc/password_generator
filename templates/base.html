@@ -4,11 +4,21 @@
 <h1>Generator gesel</h1>
 <section class="content">
   <form action="/" method="GET">
-  	<label>Stevilo besed v geslu: </label>
+  	<div>
+  		<input type="radio" id="sskj" name="slovar" value="sskj" {% if slovar=='sskj' %}checked{% endif %}>
+		<label for="sskj">Celoten korpus slovenskega jezika (~300 000 besed)</label><br>
+		<input type="radio" id="50k" name="slovar" value="50k" {% if slovar=='50k' %}checked{% endif %}>
+		<label for="50k">50 000 najpogosteje uporabljenih besed</label><br>
+</div>
+<div>
+  	<label>Število besed v geslu: </label>
   <input type="text" name="st_besed" value="{{st_besed}}" /> 
   <input type="checkbox" id="sumniki" name="sumniki" value="sumniki" {% if sumniki %}checked{% endif %}>
 	<label for="sumniki">Pretvori čšž v csz</label><br>
+	</div>
+	<div>
   <input type="submit" /> 
+</div>
 </form>
 <div class="geslo">
 	<table border=1>
