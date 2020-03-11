@@ -29,7 +29,7 @@ def hello():
             words[i]=words[i].replace("ž","z")
             #print(words)
     #return f'{escape(" ".join(words))}<br>{escape("".join(words))}'
-    return render_template('base.html', 
+    return render_template('generator.html', 
         geslo_pres=" ".join(words), 
         geslo_brezpres="".join(words), 
         st_besed=val, 

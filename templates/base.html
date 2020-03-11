@@ -1,34 +1,24 @@
 <!doctype html>
-<title>Generator gesel</title>
-<!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
-<h1>Generator gesel</h1>
-<section class="content">
-  <form action="/" method="GET">
-  	<div>
-  		<input type="radio" id="sskj" name="slovar" value="sskj" {% if slovar=='sskj' %}checked{% endif %}>
-		<label for="sskj">Celoten korpus slovenskega jezika (~300 000 besed)</label><br>
-		<input type="radio" id="50k" name="slovar" value="50k" {% if slovar=='50k' %}checked{% endif %}>
-		<label for="50k">50 000 najpogosteje uporabljenih besed</label><br>
-</div>
-<div>
-  	<label>Število besed v geslu: </label>
-  <input type="text" name="st_besed" value="{{st_besed}}" /> 
-  <input type="checkbox" id="sumniki" name="sumniki" value="sumniki" {% if sumniki %}checked{% endif %}>
-	<label for="sumniki">Pretvori čšž v csz</label><br>
-	</div>
-	<div>
-  <input type="submit" /> 
-</div>
-</form>
-<div class="geslo">
-	<table border=1>
-  <tr>
-    <td>Besede v geslu</td>
-    <td>{{geslo_pres}}</td>
-  </tr>
-  <tr>
-    <td>Brez presledkov</td>
-    <td>{{geslo_brezpres}}</td>
-  </tr>
-</table>
-</section>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>{% block title %}Generator gesel{% endblock %}</title>
+    {% block header %}{% endblock %}
+  </head>
+  <body>
+    <div class="container mt-5">
+    {% block content %}{% endblock %}
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
