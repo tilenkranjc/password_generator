@@ -1,0 +1,24 @@
+<!doctype html>
+<title>Generator gesel</title>
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+<h1>Generator gesel</h1>
+<section class="content">
+  <form action="/" method="GET">
+  	<label>Stevilo besed v geslu: </label>
+  <input type="text" name="st_besed" value="{{st_besed}}" /> 
+  <input type="checkbox" id="sumniki" name="sumniki" value="sumniki" {% if sumniki %}checked{% endif %}>
+	<label for="sumniki">Pretvori čšž v csz</label><br>
+  <input type="submit" /> 
+</form>
+<div class="geslo">
+	<table border=1>
+  <tr>
+    <td>Besede v geslu</td>
+    <td>{{geslo_pres}}</td>
+  </tr>
+  <tr>
+    <td>Brez presledkov</td>
+    <td>{{geslo_brezpres}}</td>
+  </tr>
+</table>
+</section>
