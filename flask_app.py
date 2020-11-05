@@ -3,15 +3,18 @@ import random
 
 app = Flask(__name__)
 
+# Files with dictionaries. One word per line.
 FILE_SSKJ="sbsj-new.txt"
 FILE_50K="50k-dict.txt"
 K=4
 
 @app.route('/')
 def hello():
-    #name = request.args.get("name", "World")
+    # number of words in the password
     st=request.args.get("st_besed", K)
+    # convert special characters to ASCII
     sumniki=request.args.get("sumniki", False)
+    # which dictionary to use?
     slovar=request.args.get("slovar", "sskj")
     try: 
         val = int(st)
@@ -21,14 +24,12 @@ def hello():
         words = random_sampler(FILE_50K,val)
     else:
         words = random_sampler(FILE_SSKJ,val)
+    # replace special characters
     if sumniki:
-        #print(sumniki)
         for i,w in enumerate(words):
             words[i]=words[i].replace("č","c")
             words[i]=words[i].replace("š","s")
             words[i]=words[i].replace("ž","z")
-            #print(words)
-    #return f'{escape(" ".join(words))}<br>{escape("".join(words))}'
     return render_template('generator.html', 
         geslo_pres=" ".join(words), 
         geslo_brezpres="".join(words), 
@@ -36,6 +37,7 @@ def hello():
         sumniki=sumniki,
         slovar=slovar)
 
+# function for generating random samples.
 def random_sampler(filename,k):
     sample = []
     with open(filename, 'rb') as f:
